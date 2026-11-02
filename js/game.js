@@ -645,7 +645,7 @@ function resizeCanvas() {
 }
 function zoomLimits() {
   var m = Math.min(VIEW.w, VIEW.h) || 400;
-  return { min: Math.max(26, m / 16) / TS, max: Math.max(120, m / 3.2) / TS };
+  return { min: Math.max(26, m / 22) / TS, max: Math.max(120, m / 3.2) / TS };
 }
 // encuadre que enseña el castillo, los caminos y las losas
 function fitCam() {

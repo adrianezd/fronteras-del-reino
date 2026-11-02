@@ -72,7 +72,7 @@ function renderHome() {
   var best = META.best.expedicion || 0;
   $('homeBody').innerHTML =
     (run ? '<button class="big-btn gold" onclick="resumeRun()">Continuar<small>Oleada ' + (run.wave + 1) + ' · ' + esc(new WorldMap(run.seed).name) + '</small></button>' : '') +
-    '<button class="big-btn" onclick="startMode(\'expedicion\')">Expedición<small>Un mapa nuevo que crece tras cada oleada. Récord: oleada ' + best + '</small></button>' +
+    '<button class="big-btn" onclick="startMode(\'expedicion\')">Expedición<small>Un mapa nuevo que crece tras cada oleada.' + (best ? ' Récord: oleada ' + best : '') + '</small></button>' +
     '<button class="big-btn violet" onclick="startMode(\'diario\')">Mapa del día<small>' + esc(new WorldMap(d.seed).name) + ' con ' + d.deck.map(function (id) { return TROOPS[id].name; }).join(', ') + (dBest ? '. Hoy: oleada ' + dBest : '') + '</small></button>' +
     '<button class="big-btn green" onclick="askCode()">Mapa por código<small>Juega otra vez un mapa que te haya gustado o el de un amigo.</small></button>' +
     '<div class="home-row"><button class="mid-btn" onclick="openDeck()">Mazo</button><button class="mid-btn" onclick="openRecords()">Récords</button><button class="mid-btn" onclick="openOptions()">Opciones</button></div>' +
