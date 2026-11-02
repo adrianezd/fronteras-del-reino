@@ -1,0 +1,11 @@
+{
+  "name": "Fronteras del Reino",
+  "short_name": "Fronteras",
+  "description": "Tower defense de fusión con un mapa que se genera solo y crece tras cada oleada.",
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b1030",
+  "theme_color": "#0b1030",
+  "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

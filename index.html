@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Fronteras del Reino: tower defense con mapa que crece</title>
+  <meta name="description" content="Tower defense de fusión gratis: el mapa se genera solo y crece tras cada oleada. Invoca tropas, fusiónalas y defiende el castillo de caminos y portales nuevos.">
+  <link rel="canonical" href="https://adrianezd.github.io/fronteras-del-reino/">
+  <meta property="og:title" content="Fronteras del Reino">
+  <meta property="og:description" content="Tower defense de fusión con un mapa que se genera solo y crece tras cada oleada.">
+  <meta property="og:image" content="https://adrianezd.github.io/fronteras-del-reino/assets/ui/portal-salida.webp">
+  <meta name="theme-color" content="#0b1030">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/ui/portal-salida.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=202611021200">
+</head>
+<body>
+  <main id="home" class="screen home">
+    <div class="logo"><span>FRONTERAS</span><em>del Reino</em><small>El mapa crece contigo</small></div>
+    <div id="homeBody" class="home-body"></div>
+    <div id="homeOverlay" class="overlay" hidden></div>
+  </main>
+
+  <main id="deckScreen" class="screen page" hidden>
+    <header class="page-top"><button class="back" onclick="renderHome()" aria-label="Volver">‹</button><h1>Mazo</h1><button class="mini" onclick="randomDeck()">Al azar</button></header>
+    <div id="deckBody" class="page-body"></div>
+    <div class="page-foot"><button id="deckSave" class="mid-btn gold" onclick="saveDeck()">Guardar</button></div>
+  </main>
+
+  <main id="recordsScreen" class="screen page" hidden>
+    <header class="page-top"><button class="back" onclick="renderHome()" aria-label="Volver">‹</button><h1>Récords</h1><span></span></header>
+    <div id="recordsBody" class="page-body"></div>
+  </main>
+
+  <main id="optionsScreen" class="screen page" hidden>
+    <header class="page-top"><button class="back" onclick="renderHome()" aria-label="Volver">‹</button><h1>Opciones</h1><span></span></header>
+    <div id="optionsBody" class="page-body"></div>
+  </main>
+
+  <main id="game" class="screen game" hidden>
+    <header id="hud">
+      <div class="pill"><img src="assets/ui/vida.webp" alt=""><span id="lives">10</span></div>
+      <div class="pill wave" id="wave">Prepárate</div>
+      <div id="fxInfo" class="fx-info"></div>
+      <button id="centerBtn" class="icon-btn" onclick="recenter()" aria-label="Encuadrar el mapa"><img src="assets/icons/diana.webp" alt=""></button>
+      <button id="speedBtn" class="icon-btn" onclick="cycleSpeed()" aria-label="Velocidad">x1</button>
+      <button class="icon-btn" onclick="togglePause()" aria-label="Pausa">⏸</button>
+    </header>
+    <div id="board">
+      <canvas id="cv"></canvas>
+      <div id="bossBar" hidden><span id="bossName"></span><div class="bar"><i id="bossFill"></i></div></div>
+      <div id="nextInfo" hidden></div>
+      <div id="banner"></div>
+      <div id="coach" hidden></div>
+      <div id="selInfo" hidden></div>
+      <div id="flash"></div>
+    </div>
+    <footer id="controls">
+      <div class="row">
+        <div class="mana-pill"><img src="assets/ui/mana.webp" alt=""><span id="mana">0</span></div>
+        <div id="cards"></div>
+      </div>
+      <div class="row">
+        <button id="cmdBtn" onclick="useCommander()" aria-label="Habilidad del comandante"><img id="cmdImg" alt=""></button>
+        <button id="summonBtn" onclick="doSummon()">Invocar<small><img src="assets/ui/mana.webp" alt=""><span id="summonCost">10</span></small></button>
+      </div>
+    </footer>
+    <div id="overlay" class="overlay" hidden></div>
+  </main>
+
+  <div id="toast"></div>
+
+  <script src="js/data.js?v=202611021200"></script>
+  <script src="js/map.js?v=202611021200"></script>
+  <script src="js/game.js?v=202611021200"></script>
+  <script src="js/ui.js?v=202611021200"></script>
+</body>
+</html>
